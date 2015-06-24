@@ -1,11 +1,16 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
 
+	private static List<InControl.InputDevice> activeDevices = new List<InControl.InputDevice>();
+	public InControl.InputDevice inputDevice { get; private set; }
+	public bool hasInputDevice { get { return inputDevice != null; } }
+
+
 	private float health = 100; //Percentage, //Can be changed if you want
 	private float maxHealth = 100; //Whatever the max health is. If you dont want to use percentage change
-	private float movementSpeed = 10;
 
 
 
@@ -13,40 +18,18 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		//Start with maximum health
 		health = maxHealth;
-	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.Space)){
-			Jump();
+		if (inputDevice == null) {
+			ScanForInputDevice ();
 		}
+
 	}
 
-
-
-	//Movement Stuff
 	void FixedUpdate(){
-		//If Input is != 0 run playermovement;
-		player_Movement ();
 	}
-
-	//All player movement is done in here, including looking
-	void player_Movement(){
-		//Store Input in a vector
-		float horizontalMovement = Input.GetAxis ("Horizontal") * movementSpeed * Time.deltaTime;
-		//Move Player
-		transform.Translate(new Vector3(horizontalMovement,0,0));
-	}
-
-	//Code for player jump (Includes double), triple should be included in gravity knuckles.
-	void Jump(){
-		//The multiplayer for the AddForce
-		float multiplier = 200;
-		//Adds force in the direction of up
-		rigidbody2D.AddForce (Vector3.up * multiplier);
-	}
-
 
 
 
@@ -67,4 +50,24 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
+	void ReleaseActiveInputDevice()
+	{
+		if (inputDevice != null && activeDevices.Contains(inputDevice))
+		{
+			activeDevices.Remove(inputDevice);
+		}
+	}
+	
+	private void ScanForInputDevice()
+	{
+		foreach (var device in InControl.InputManager.Devices)
+		{
+			if (!activeDevices.Contains(device))
+			{
+				activeDevices.Add(device);
+				inputDevice = device;
+				return;
+			}
+		}
+	}
 }
