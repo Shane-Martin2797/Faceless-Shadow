@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour {
 
 	private float health = 100; //Percentage, //Can be changed if you want
 	private float maxHealth = 100; //Whatever the max health is. If you dont want to use percentage change
+	private float movementSpeed = 10;
 
 
 
@@ -30,11 +31,10 @@ public class PlayerController : MonoBehaviour {
 
 	//All player movement is done in here, including looking
 	void player_Movement(){
-		//Store Input in a vectore
-
-		//Look around
-
+		//Store Input in a vector
+		float horizontalMovement = Input.GetAxis ("Horizontal") * movementSpeed * Time.deltaTime;
 		//Move Player
+		transform.Translate(new Vector3(horizontalMovement,0,0));
 	}
 
 	//Code for player jump (Includes double), triple should be included in gravity knuckles.
