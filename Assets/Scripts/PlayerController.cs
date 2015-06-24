@@ -18,7 +18,9 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if(Input.GetKeyDown(KeyCode.Space)){
+			Jump();
+		}
 	}
 
 
@@ -39,7 +41,10 @@ public class PlayerController : MonoBehaviour {
 
 	//Code for player jump (Includes double), triple should be included in gravity knuckles.
 	void Jump(){
-
+		//The multiplayer for the AddForce
+		float multiplier = 200;
+		//Adds force in the direction of up
+		rigidbody2D.AddForce (Vector3.up * multiplier);
 	}
 
 
