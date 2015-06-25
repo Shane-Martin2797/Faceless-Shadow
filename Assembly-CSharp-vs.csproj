@@ -159,12 +159,13 @@
      <Compile Include="Assets\InControl\Test\TestInputManager.cs" />
      <Compile Include="Assets\Plugin\CharacterController2D.cs" />
      <Compile Include="Assets\Plugin\SmoothFollow.cs" />
-     <Compile Include="Assets\Scripts\CameraFollowScript.cs" />
      <Compile Include="Assets\Scripts\Input\PlayerKeyboardScript.cs" />
-     <Compile Include="Assets\Scripts\PlayerCombat.cs" />
-     <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-     <Compile Include="Assets\Weapons\BaseWeapon.cs" />
+     <Compile Include="Assets\Scripts\Player\CameraFollowScript.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerCombat.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Weapons\BaseWeapon.cs" />
+     <Compile Include="Assets\Scripts\Weapons\GravityKnuckles.cs" />
      <None Include="Assets\InControl\README\README.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>/Users/shanemartin/BitBucket/faceless-shadow-beard/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>

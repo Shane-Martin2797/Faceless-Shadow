@@ -18,15 +18,15 @@ public class PlayerKeyboardScript : UnityInputDeviceProfile {
 			},
 			new InputControlMapping()
 			{
-				Handle = "GravityKnuckles",
+				Handle = "Attack",
 				Target = InputControlType.Action2,
 				Source = new UnityKeyCodeSource(KeyCode.LeftShift)
 			},
 			new InputControlMapping()
 			{
-				Handle = "PlasmaSword",
-				Target = InputControlType.Action3,
-				Source = new UnityKeyCodeSource(KeyCode.F)
+				Handle = "WeaponCycle",
+				Target = InputControlType.Action4,
+				Source = new UnityKeyCodeSource(KeyCode.Tab)
 			}
 		};
 		
@@ -42,13 +42,19 @@ public class PlayerKeyboardScript : UnityInputDeviceProfile {
 			{
 				Handle = "HeightControl",
 				Target = InputControlType.LeftStickY,
-				Source = new UnityKeyCodeAxisSource(KeyCode.W, KeyCode.S)
+				Source = new UnityKeyCodeAxisSource(KeyCode.S, KeyCode.W)
+			},
+			new InputControlMapping()
+			{
+				Handle = "Right Stick X",
+				Target = InputControlType.RightStickX,
+				Source = new UnityKeyCodeAxisSource(KeyCode.LeftArrow, KeyCode.RightArrow)
 			},
 			new InputControlMapping()
 			{
 				Handle = "Right Stick Y",
 				Target = InputControlType.RightStickY,
-				Source = new UnityKeyCodeAxisSource(KeyCode.Q, KeyCode.E)
+				Source = new UnityKeyCodeAxisSource(KeyCode.DownArrow, KeyCode.UpArrow)
 			}
 		};
 	}
