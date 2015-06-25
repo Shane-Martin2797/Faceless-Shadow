@@ -1,11 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../Downloads/MDU112/Week 11/Workshop/Assets/Plugin/CharacterController2D.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Weapons/GravityKnuckles.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="94" Column="44" />
-      <File FileName="Assets/Scripts/CameraFollowScript.cs" Line="1" Column="1" />
-      <File FileName="../../Downloads/MDU112/Week 11/Workshop/Assets/Scripts/PlayerMovement.cs" Line="4" Column="47" />
-      <File FileName="../../Downloads/MDU112/Week 11/Workshop/Assets/Plugin/CharacterController2D.cs" Line="147" Column="49" />
+      <File FileName="Assets/Scripts/Weapons/GravityKnuckles.cs" Line="7" Column="29" />
+      <File FileName="Assets/Scripts/Player/PlayerCombat.cs" Line="10" Column="17" />
+      <File FileName="Assets/Scripts/Input/PlayerKeyboardScript.cs" Line="57" Column="52" />
+      <File FileName="Assets/Scripts/Player/PlayerMovement.cs" Line="19" Column="45" />
+      <File FileName="Assets/Scripts/Weapons/BaseWeapon.cs" Line="12" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
