@@ -165,7 +165,9 @@
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Weapons\BaseWeapon.cs" />
+     <Compile Include="Assets\Scripts\Weapons\Enemy.cs" />
      <Compile Include="Assets\Scripts\Weapons\GravityKnuckles.cs" />
+     <Compile Include="Assets\Scripts\Weapons\ShredderMine.cs" />
      <None Include="Assets\InControl\README\README.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>/Users/shanemartin/BitBucket/faceless-shadow-beard/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
