@@ -19,7 +19,7 @@ public class GravityKnuckles : BaseWeapon {
 		float inputY = InControl.InputManager.ActiveDevice.RightStickY.Value;
 		float inputX = InControl.InputManager.ActiveDevice.RightStickX.Value;
 
-		//Puts these values into a Vector2 called force
+		//Puts these values into a Vector3 called force
 		Vector3 force = new Vector3(inputX, inputY, 0) * -gravityBoost;
 
 		//Remove Power from resource
