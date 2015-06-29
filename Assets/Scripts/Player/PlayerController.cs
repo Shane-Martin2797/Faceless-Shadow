@@ -32,7 +32,17 @@ public class PlayerController : MonoBehaviour {
 	}
 
 
+	void OnTriggerEnter2D(Collider2D collider){
+		notifyGameObject (collider.gameObject);
+	}
+	void OnCollisionEnter2D(Collision2D collision){
+		notifyGameObject (collision.gameObject);
+	}
 
+	void notifyGameObject(GameObject gameObj){
+		gameObj.BroadcastMessage ("PlayerHit");
+		Debug.Log ("Player Hit: " + gameObj);
+	}
 	//Health stuff
 	void playerDamaged(float damage){
 		//Damage the player

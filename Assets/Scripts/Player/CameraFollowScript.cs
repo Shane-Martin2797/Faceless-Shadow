@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraFollowScript : MonoBehaviour {
 
-	public PlayerController target;
+	public CharacterController2D target;
 	private Vector3 originalPosition;
 	private float maxHeight = 100;
 	private float time = 0;
@@ -11,7 +11,7 @@ public class CameraFollowScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		originalPosition = transform.position;
-		target = FindObjectOfType<PlayerController> ();
+		target = FindObjectOfType<CharacterController2D> ();
 	}
 	
 	// Update is called once per frame

@@ -8,15 +8,27 @@ public class ShredderMine : Enemy {
 
 	public override void notifyTarget (GameObject gameObject)
 	{
+		if(gameObject.tag == "Player")
+		Attack ();
+	}
+	public override void PlayerHit(){
 		Attack ();
 	}
 
-	void Attack(){
+	public override void Attack(){
 		for (int i = 0; i < spikesToSpawn; i++) {
-			Vector3 random = Random.insideUnitSphere;
-			random.z = 0;
+			Vector3 random = Vector3.zero;
+			random.z = Random.value * 360;
 			GameObject spikes = Instantiate(spike, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
 			spikes.transform.localEulerAngles = random;
 		}
+		CleanUpObject ();
 	}
+
+
+	public override void CleanUpObject ()
+	{
+		Destroy (gameObject);
+	}
+
 }
