@@ -5,14 +5,17 @@ public class Spike : Enemy {
 
 	private float minDamage = 20; 			//Percentage of Health
 	private float maxDamage = 40; 			//Percentage of Health
-	private float lifetime = 5;
+	public float lifetime = 4;
+	public float speed = 2;
 	private float Lifetime;
 	public GameObject target;
 	private Vector3 targetPosition;
+	private Vector3 direction;
 
 	void Start(){
 		targetPosition = (transform.position + transform.up * 10);
 		Lifetime = lifetime;
+		direction = Vector3.up;
 	}
 	void Update(){
 		Lifetime -= Time.deltaTime;
@@ -46,13 +49,13 @@ public class Spike : Enemy {
 		CleanUpObject ();
 
 	}
-
-	public override void CleanUpObject(){
-		Destroy (this.gameObject);
+	void GravityKnucklesAffect(Vector3 rotation){
+		//transform.localEulerAngles = rotation;		//Doesnt work properly
 	}
 
 	void FixedUpdate(){
-		transform.position = Vector3.Lerp(transform.position, targetPosition, 1 * Time.deltaTime);
+		//transform.position = Vector3.Lerp(transform.position, targetPosition, 1 * Time.deltaTime);
+		transform.Translate(Vector3.up * speed * Time.deltaTime);
 	}
 
 }

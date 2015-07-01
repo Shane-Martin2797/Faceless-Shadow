@@ -8,12 +8,15 @@ public class GravityKnuckles : BaseWeapon {
 	private float gravityBoost = 800;
 	public float maxDistance = 5;
 	private CircleCollider2D circle;
+	private CharacterController2D controller;
+
 
 	public List<GameObject> forceList = new List<GameObject>();
 
 	void Start(){
 		circle = GetComponent<CircleCollider2D> ();
 		circle.radius = (maxDistance / 2);
+		controller = FindObjectOfType<CharacterController2D>().GetComponent<CharacterController2D>();
 	}
 
 
@@ -36,9 +39,13 @@ public class GravityKnuckles : BaseWeapon {
 
 		foreach (var gObject in forceList) {
 			if(gObject.rigidbody2D != null){
-				Vector3 angle = (gObject.transform.position - this.gameObject.transform.position).normalized;
-			float distance = Vector3.Distance(this.gameObject.transform.position, gObject.transform.position);
-			gObject.rigidbody2D.AddForce(angle * (1/distance) * maxDistance * gravityBoost);
+				if(gObject != null){
+					Vector3 angle = (gObject.transform.position - this.gameObject.transform.position).normalized;
+					Vector3 vectorAngle = new Vector3(0, 0, Vector3.Angle(gameObject.transform.position, gObject.transform.position));
+					float distance = Vector3.Distance(this.gameObject.transform.position, gObject.transform.position);
+					gObject.rigidbody2D.AddForce(angle * (1/distance) * maxDistance * gravityBoost);
+					gObject.BroadcastMessage("GravityKnucklesAffect", vectorAngle, SendMessageOptions.DontRequireReceiver);
+			}
 			}
 		}
 
@@ -71,7 +78,7 @@ public class GravityKnuckles : BaseWeapon {
 	}
 	public override bool isReady {
 		get {
-			return (cooldown <= 0);
+			return (cooldown <= 0 && !controller.isGrounded);
 		}
 	}
 

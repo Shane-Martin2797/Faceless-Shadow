@@ -24,11 +24,4 @@ public class ShredderMine : Enemy {
 		}
 		CleanUpObject ();
 	}
-
-
-	public override void CleanUpObject ()
-	{
-		Destroy (gameObject);
-	}
-
 }

@@ -5,6 +5,10 @@ public abstract class Enemy : MonoBehaviour {
 
 	private GravityKnuckles gravityKnuckles;
 
+	public virtual void Awake(){
+		gravityKnuckles = FindObjectOfType<GravityKnuckles>();
+	}
+
 
 	public virtual void OnTriggerEnter2D(Collider2D collider){
 		notifyTarget (collider.gameObject);
@@ -16,7 +20,13 @@ public abstract class Enemy : MonoBehaviour {
 
 	public abstract void notifyTarget(GameObject gameObject);
 	public abstract void Attack();
-	public abstract void CleanUpObject ();
 	public abstract void PlayerHit();
+
+	public virtual void CleanUpObject ()
+	{
+		gravityKnuckles.forceList.Remove (gameObject);
+		Destroy (gameObject);
+	}
+
 
 }
