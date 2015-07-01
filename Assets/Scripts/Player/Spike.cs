@@ -37,7 +37,6 @@ public class Spike : Enemy {
 		if (gameObject.tag != "Projectile" && gameObject.tag != "Weapon") {
 			target = gameObject;
 			Attack ();
-			Debug.Log (gameObject);
 		}
 	}
 

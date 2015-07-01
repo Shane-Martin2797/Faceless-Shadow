@@ -41,7 +41,6 @@ public class PlayerController : MonoBehaviour {
 
 	void notifyGameObject(GameObject gameObj){
 		gameObj.BroadcastMessage ("PlayerHit");
-		Debug.Log ("Player Hit: " + gameObj);
 	}
 	//Health stuff
 	void playerDamaged(float damage){
