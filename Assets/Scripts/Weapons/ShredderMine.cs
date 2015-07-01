@@ -3,8 +3,10 @@ using System.Collections;
 
 public class ShredderMine : Enemy {
 
-	public float spikesToSpawn;
+	public float spikesToSpawn = 20;
+	public float delay = 1;
 	public GameObject spike;
+	private bool attacking = false;
 
 	public override void notifyTarget (GameObject gameObject)
 	{
@@ -12,7 +14,18 @@ public class ShredderMine : Enemy {
 		Attack ();
 	}
 	public override void PlayerHit(){
-		Attack ();
+		attacking = true;
+	}
+
+	void Update(){
+
+		if (attacking) {
+			if(delay <= 0){
+			Attack ();
+			} else {
+				delay -= Time.deltaTime;
+			}
+		}
 	}
 
 	public override void Attack(){
