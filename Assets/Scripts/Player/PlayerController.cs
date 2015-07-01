@@ -4,9 +4,12 @@ using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
 
+	public GameController ground;
 	private static List<InControl.InputDevice> activeDevices = new List<InControl.InputDevice>();
 	public InControl.InputDevice inputDevice { get; private set; }
 	public bool hasInputDevice { get { return inputDevice != null; } }
+	public float minClampY, maxClampY;
+	private float mapHeight = 50;
 
 
 	private float health = 100; //Percentage, //Can be changed if you want
@@ -18,6 +21,9 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		//Start with maximum health
 		health = maxHealth;
+		BoxCollider2D box = GetComponent<BoxCollider2D> ();
+		minClampY = -3.69f; //(-((transform.localScale.y/2) * (box.size.y)) + ground.transform.position.y);
+		maxClampY = (minClampY + mapHeight);
 	}
 	
 	// Update is called once per frame
@@ -28,6 +34,9 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+		Vector3 pos = transform.position;
+		pos.y = Mathf.Clamp (pos.y, minClampY, maxClampY);
+		transform.position = pos;
 	}
 
 

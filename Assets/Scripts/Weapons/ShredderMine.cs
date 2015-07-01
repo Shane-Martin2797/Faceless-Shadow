@@ -4,8 +4,9 @@ using System.Collections;
 public class ShredderMine : Enemy {
 
 	public float spikesToSpawn = 20;
-	public float delay = 1;
+	public float delay = 0;
 	public GameObject spike;
+	public Spawner spawner;
 	private bool attacking = false;
 
 	public override void notifyTarget (GameObject gameObject)
@@ -29,12 +30,9 @@ public class ShredderMine : Enemy {
 	}
 
 	public override void Attack(){
-		for (int i = 0; i < spikesToSpawn; i++) {
-			Vector3 random = Vector3.zero;
-			random.z = Random.value * 360;
-			GameObject spikes = Instantiate(spike, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
-			spikes.transform.localEulerAngles = random;
-		}
+		spawner.spawnCount = spikesToSpawn;
+		spawner.BroadcastMessage ("Spawn", spike, SendMessageOptions.DontRequireReceiver);
 		CleanUpObject ();
 	}
+
 }
