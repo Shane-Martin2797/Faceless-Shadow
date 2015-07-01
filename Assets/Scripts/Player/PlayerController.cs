@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour {
 		if (inputDevice == null) {
 			ScanForInputDevice ();
 		}
-
 	}
 
 	void FixedUpdate(){
