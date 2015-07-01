@@ -11,7 +11,7 @@ public class ShredderMine : Enemy {
 	public override void notifyTarget (GameObject gameObject)
 	{
 		if(gameObject.tag == "Player")
-		Attack ();
+		PlayerHit ();
 	}
 	public override void PlayerHit(){
 		attacking = true;
@@ -21,7 +21,7 @@ public class ShredderMine : Enemy {
 
 		if (attacking) {
 			if(delay <= 0){
-			Attack ();
+				Attack ();
 			} else {
 				delay -= Time.deltaTime;
 			}
