@@ -37,14 +37,19 @@ public class GravityKnuckles : BaseWeapon {
 		player.rigidbody2D.AddForce (force);
 		Debug.Log ("Added: " + force);
 
-		foreach (var gObject in forceList) {
+		foreach (GameObject gObject in forceList) {
 			if(gObject.rigidbody2D != null){
 				if(gObject != null){
+
 					Vector3 angle = (gObject.transform.position - this.gameObject.transform.position).normalized;
+
 					Vector3 vectorAngle = new Vector3(0, 0, Vector3.Angle(gameObject.transform.position, gObject.transform.position));
+
+					float angleValue = Mathf.Atan2 (angle.y,angle.x)*Mathf.Rad2Deg-90;
+
 					float distance = Vector3.Distance(this.gameObject.transform.position, gObject.transform.position);
 					gObject.rigidbody2D.AddForce(angle * (1/distance) * maxDistance * gravityBoost);
-					gObject.BroadcastMessage("GravityKnucklesAffect", vectorAngle, SendMessageOptions.DontRequireReceiver);
+					gObject.BroadcastMessage("GravityKnucklesAffect", (angleValue), SendMessageOptions.DontRequireReceiver);
 			}
 			}
 		}

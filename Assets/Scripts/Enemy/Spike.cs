@@ -12,6 +12,7 @@ public class Spike : Enemy {
 	private Vector3 targetPosition;
 	private Vector3 direction;
 
+
 	void Start(){
 		targetPosition = (transform.position + transform.up * 10);
 		Lifetime = lifetime;
@@ -48,8 +49,9 @@ public class Spike : Enemy {
 		CleanUpObject ();
 
 	}
-	void GravityKnucklesAffect(Vector3 rotation){
-		//transform.localEulerAngles = rotation;		//Doesnt work properly
+	void GravityKnucklesAffect(float rotation){
+		Debug.Log (rotation);
+		transform.eulerAngles = new Vector3(0,0,rotation);		//Doesnt work properly
 	}
 
 	void FixedUpdate(){
