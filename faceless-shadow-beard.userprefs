@@ -1,9 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/GameController.cs">
     <Files>
-      <File FileName="../../GitHub/GAM111.1/Assets/Scripts/Main/GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player/GameController.cs" Line="10" Column="41" />
+      <File FileName="Assets/Scripts/Player/GameController.cs" Line="18" Column="1" />
+      <File FileName="Assets/Scripts/Scenes.cs" Line="6" Column="43" />
+      <File FileName="Assets/Scripts/Weapons/GravityKnuckles.cs" Line="46" Column="1" />
+      <File FileName="Assets/Scripts/Enemy/Spike.cs" Line="53" Column="24" />
+      <File FileName="Assets/Scripts/Enemy/Spawner.cs" Line="15" Column="1" />
+      <File FileName="Assets/Scripts/Player/CameraFollowScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

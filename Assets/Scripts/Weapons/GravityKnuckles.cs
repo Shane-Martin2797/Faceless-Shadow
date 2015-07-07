@@ -43,8 +43,6 @@ public class GravityKnuckles : BaseWeapon {
 
 					Vector3 angle = (gObject.transform.position - this.gameObject.transform.position).normalized;
 
-					Vector3 vectorAngle = new Vector3(0, 0, Vector3.Angle(gameObject.transform.position, gObject.transform.position));
-
 					float angleValue = Mathf.Atan2 (angle.y,angle.x)*Mathf.Rad2Deg-90;
 
 					float distance = Vector3.Distance(this.gameObject.transform.position, gObject.transform.position);
@@ -55,7 +53,7 @@ public class GravityKnuckles : BaseWeapon {
 		}
 
 		//Remove Power from resource
-		//player.removePowerResource(value)
+		//player.removePowerResource(25%)
 		cooldown = 3;
 	}
 
