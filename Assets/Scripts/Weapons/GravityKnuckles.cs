@@ -35,16 +35,12 @@ public class GravityKnuckles : BaseWeapon {
 		//Puts these values into a Vector3 called force
 		Vector3 force = new Vector2(inputX, inputY) * -gravityBoost;
 		player.rigidbody2D.AddForce (force);
-		Debug.Log ("Added: " + force);
 
 		foreach (GameObject gObject in forceList) {
 			if(gObject.rigidbody2D != null){
 				if(gObject != null){
-
 					Vector3 angle = (gObject.transform.position - this.gameObject.transform.position).normalized;
-
 					float angleValue = Mathf.Atan2 (angle.y,angle.x)*Mathf.Rad2Deg-90;
-
 					float distance = Vector3.Distance(this.gameObject.transform.position, gObject.transform.position);
 					gObject.rigidbody2D.AddForce(angle * (1/distance) * maxDistance * gravityBoost);
 					gObject.BroadcastMessage("GravityKnucklesAffect", (angleValue), SendMessageOptions.DontRequireReceiver);

@@ -50,8 +50,8 @@ public class Spike : Enemy {
 
 	}
 	void GravityKnucklesAffect(float rotation){
-		Debug.Log (rotation);
-		transform.eulerAngles = new Vector3(0,0,rotation);		//Doesnt work properly
+		//Changes the rotation of the spike to the rotation that the 
+		transform.eulerAngles = new Vector3(0,0,rotation);
 	}
 
 	void FixedUpdate(){
