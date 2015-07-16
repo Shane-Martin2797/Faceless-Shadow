@@ -169,6 +169,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Scenes.cs" />
      <Compile Include="Assets\Scripts\UI\UIHealthScript.cs" />
+     <Compile Include="Assets\Scripts\UI\UITimerScript.cs" />
      <Compile Include="Assets\Scripts\Weapons\BaseWeapon.cs" />
      <Compile Include="Assets\Scripts\Weapons\Enemy.cs" />
      <Compile Include="Assets\Scripts\Weapons\GravityKnuckles.cs" />
