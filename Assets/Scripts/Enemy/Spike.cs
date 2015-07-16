@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Spike : Enemy {
 
-	private float minDamage = 20; 			//Percentage of Health
-	private float maxDamage = 40; 			//Percentage of Health
+	private float minDamage = 1; 			//Percentage of Health
+	private float maxDamage = 2; 			//Percentage of Health
 	public float lifetime = 4;
 	public float speed = 2;
 	private float Lifetime;

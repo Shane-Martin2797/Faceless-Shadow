@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class GravityKnuckles : BaseWeapon {
 
+
 	private float cooldown = 3;
 	private float gravityBoost = 800;
 	public float maxDistance = 5;
