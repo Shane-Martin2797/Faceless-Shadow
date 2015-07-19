@@ -159,11 +159,17 @@
      <Compile Include="Assets\InControl\Test\TestInputManager.cs" />
      <Compile Include="Assets\Plugin\CharacterController2D.cs" />
      <Compile Include="Assets\Plugin\SmoothFollow.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Spawner.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Spike.cs" />
      <Compile Include="Assets\Scripts\Input\PlayerKeyboardScript.cs" />
      <Compile Include="Assets\Scripts\Player\CameraFollowScript.cs" />
+     <Compile Include="Assets\Scripts\Player\GameController.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerCombat.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Scenes.cs" />
+     <Compile Include="Assets\Scripts\UI\UIHealthScript.cs" />
+     <Compile Include="Assets\Scripts\UI\UITimerScript.cs" />
      <Compile Include="Assets\Scripts\Weapons\BaseWeapon.cs" />
      <Compile Include="Assets\Scripts\Weapons\Enemy.cs" />
      <Compile Include="Assets\Scripts\Weapons\GravityKnuckles.cs" />

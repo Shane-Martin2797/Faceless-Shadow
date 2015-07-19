@@ -1,8 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Weapons/ShredderMine.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/UITimerScript.cs">
     <Files>
-      <File FileName="Assets/Scripts/Weapons/ShredderMine.cs" Line="5" Column="2" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="7" Column="36" />
+      <File FileName="Assets/Scripts/UI/UIHealthScript.cs" Line="16" Column="1" />
+      <File FileName="Assets/Plugin/CharacterController2D.cs" Line="150" Column="24" />
+      <File FileName="Assets/Scripts/Player/GameController.cs" Line="31" Column="4" />
+      <File FileName="Assets/Scripts/UI/UITimerScript.cs" Line="22" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
