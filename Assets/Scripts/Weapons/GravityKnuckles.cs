@@ -8,6 +8,7 @@ public class GravityKnuckles : BaseWeapon {
 	private float cooldown = 3;
 	private float gravityBoost = 800;
 	public float maxDistance = 5;
+	public float powerToRemove = 50;
 	private CircleCollider2D circle;
 	private CharacterController2D controller;
 
@@ -15,6 +16,7 @@ public class GravityKnuckles : BaseWeapon {
 	public List<GameObject> forceList = new List<GameObject>();
 
 	void Start(){
+		player = FindObjectOfType<PlayerController> ();
 		circle = GetComponent<CircleCollider2D> ();
 		circle.radius = (maxDistance / 2);
 		controller = FindObjectOfType<CharacterController2D>().GetComponent<CharacterController2D>();
@@ -50,7 +52,7 @@ public class GravityKnuckles : BaseWeapon {
 		}
 
 		//Remove Power from resource
-		//player.removePowerResource(25%)
+		player.changePowerResource (powerToRemove);
 		cooldown = 3;
 	}
 

@@ -2,10 +2,10 @@
 using System.Collections;
 
 public abstract class BaseWeapon : MonoBehaviour {
-	public CharacterController2D player;
+	public PlayerController player;
 
 	public virtual void Awake(){
-		player = FindObjectOfType<CharacterController2D> ();
+		player = FindObjectOfType<PlayerController> ();
 	}
 
     /// <summary>
