@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class UIHealthScript : MonoBehaviour {
 
 
-	public Slider slider; 
+	public Slider health; 
+
 	void OnEnable(){
 		PlayerController.onPlayerHealthChange += HandleOnHealthChange;
 	}
@@ -15,6 +16,6 @@ public class UIHealthScript : MonoBehaviour {
 	}
 
 	void HandleOnHealthChange(float healthValue){
-		slider.value = (healthValue);
+		health.value = (healthValue);
 	}
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class PlayerController : MonoBehaviour {
 
 	public static event System.Action<float> onPlayerHealthChange;
+	public static event System.Action<float> onPlayerEnergyChange;
 
 
 	public GameController ground;
@@ -16,13 +17,24 @@ public class PlayerController : MonoBehaviour {
 	private float mapHeight = 50;
 	private float timeWithoutHitDef = 3;
 	private float timeWithoutHit;
+	private float timeWithoutEnergyDef = 3;
+	public float timeWithoutEnergy;
+
 	public AnimationCurve healthRecoverCurve;
 	public float maxTimeToRecover = 5;
+	public AnimationCurve energyCurve;
+	private float recoveryTimerEnergy;
 	private float recoveryTimer;
 
+	private float timeToTake = 5;
+	private bool energyChanging;
+	private float energyValueChangingTo;
 
 	private float health = 100; //Percentage, //Can be changed if you want
 	private float maxHealth = 100; //Whatever the max health is. If you dont want to use percentage change
+
+	public float energy = 100; //Percentage, //Can be changed if you want
+	private float maxEnergy = 100; //Whatever the max health is. If you dont want to use percentage change
 
 
 
@@ -30,6 +42,9 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		//Start with maximum health
 		health = maxHealth;
+		//Start with max energy
+		energy = maxEnergy;
+		energyValueChangingTo = energy;
 		character = this.gameObject.GetComponent<CharacterController2D> ();
 		BoxCollider2D box = GetComponent<BoxCollider2D> ();
 
@@ -47,12 +62,21 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			timeWithoutHit -= Time.deltaTime;
 		}
-		/*if (character.isGrounded) {
-			minClampY = this.gameObject.transform.position.y;
-			maxClampY = (minClampY + mapHeight);
+		if (timeWithoutEnergy < 0) {
+			recoverEnergy();
 		} else {
-			minClampY = -3.69f;
-		}*/ // Doesnt work, because as soon as you go through the floor, you are not grounded.
+			timeWithoutEnergy -= Time.deltaTime;
+		}
+		if (energyChanging) {
+			energy = Mathf.Lerp (energy, energyValueChangingTo, timeToTake * Time.deltaTime);
+			if(energy == energyValueChangingTo){
+				energyChanging = false;
+			}
+			if (onPlayerEnergyChange != null) {
+				onPlayerEnergyChange (energy / maxEnergy);
+			}
+		}
+
 	}
 
 	void FixedUpdate(){
@@ -97,7 +121,20 @@ public class PlayerController : MonoBehaviour {
 	void DamageHit(DamageInfo damage){
 		playerDamaged (damage.damage);
 	}
-
+	void recoverEnergy(){
+		//Adds time to the recover time so that the health will increase quicker
+		recoveryTimerEnergy += Time.deltaTime;
+		//Adds energy
+		if (energy < maxEnergy) {
+			energy += (energyRecoveryCurveNormal * maxEnergy);
+			energyValueChangingTo = energy;
+			//Energy is false
+			energyChanging = false;
+		}
+		if (onPlayerEnergyChange != null) {
+			onPlayerEnergyChange(energy / maxEnergy);
+		}
+	}
 
 	void recoverHealth(){
 		//Adds time to the recover time so that the health will increase quicker.
@@ -105,6 +142,18 @@ public class PlayerController : MonoBehaviour {
 		//If the health is less then the max then continue to recover.
 		if (health < maxHealth) {
 			playerHealed (healthRecoveryCurveNormal * maxHealth);
+		}
+	}
+	public void changePowerResource(float value){
+		timeWithoutEnergy = timeWithoutEnergyDef;
+		recoveryTimerEnergy = 0;
+		energyChanging = true;
+		energyValueChangingTo -= value;
+	}
+	float energyRecoveryCurveNormal 
+	{
+		get {
+			return energyCurve.Evaluate(Mathf.Clamp01(recoveryTimerEnergy / timeToTake));
 		}
 	}
 
