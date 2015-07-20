@@ -2,14 +2,12 @@
 using System.Collections;
 
 public abstract class BaseWeapon : MonoBehaviour {
-	public PlayerController player;
-	public PlayerMovement playerMovement;
-	public CharacterController2D characterController2D;
+	public CharacterController2D player;
+
 	public virtual void Awake(){
-		player = FindObjectOfType<PlayerController> ();
-		playerMovement = FindObjectOfType<PlayerMovement> ();
-		characterController2D = FindObjectOfType<CharacterController2D> ();
+		player = FindObjectOfType<CharacterController2D> ();
 	}
+
     /// <summary>
     /// Return true if the weapon is ready to fire
     /// </summary>
