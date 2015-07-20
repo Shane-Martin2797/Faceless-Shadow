@@ -8,7 +8,7 @@ public class GravityKnuckles : BaseWeapon {
 	private float cooldown = 3;
 	private float gravityBoost = 800;
 	public float maxDistance = 5;
-	public float powerToRemove = 50;
+	public float powerToRemove = 100;
 	private CircleCollider2D circle;
 	private CharacterController2D controller;
 
@@ -80,7 +80,7 @@ public class GravityKnuckles : BaseWeapon {
 	}
 	public override bool isReady {
 		get {
-			return (cooldown <= 0 && !controller.isGrounded);
+			return (cooldown <= 0 && !controller.isGrounded && player.energy >= powerToRemove);
 		}
 	}
 

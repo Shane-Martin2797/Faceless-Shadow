@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour {
 	private float timeWithoutHitDef = 3;
 	private float timeWithoutHit;
 	private float timeWithoutEnergyDef = 3;
-	public float timeWithoutEnergy;
+	private float timeWithoutEnergy;
 
 	public AnimationCurve healthRecoverCurve;
 	public float maxTimeToRecover = 5;

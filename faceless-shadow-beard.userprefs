@@ -1,19 +1,23 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/FollowScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Weapons/ShredderMine.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="27" Column="31" />
+      <File FileName="Assets/Scripts/Weapons/ShredderMine.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Weapons/GravityKnuckles.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Weapons/BaseWeapon.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/UI/UIEnergyScript.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/UI/UIHealthScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Enemy/Spawner.cs" Line="17" Column="1" />
-      <File FileName="Assets/Scripts/FollowScript.cs" Line="6" Column="27" />
+      <File FileName="Assets/Scripts/Enemy/Spawner.cs" Line="2" Column="26" />
+      <File FileName="Assets/Scripts/FollowScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/shanemartin/BitBucket/faceless-shadow-beard/Assets/Scripts/Player/PlayerController.cs" line="112" />
+      <Breakpoint file="/Users/shanemartin/BitBucket/faceless-shadow-beard/Assets/Scripts/Player/PlayerController.cs" line="122" />
+      <Breakpoint file="/Users/shanemartin/BitBucket/faceless-shadow-beard/Assets/Scripts/Player/PlayerController.cs" line="107" />
+      <Breakpoint file="/Users/shanemartin/BitBucket/faceless-shadow-beard/Assets/Scripts/UI/UIHealthScript.cs" line="19" />
+      <Breakpoint file="/Users/shanemartin/BitBucket/faceless-shadow-beard/Assets/Scripts/UI/UIHealthScript.cs" line="15" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
