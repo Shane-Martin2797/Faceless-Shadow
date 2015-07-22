@@ -40,8 +40,8 @@ public class GravityKnuckles : BaseWeapon {
 		player.rigidbody2D.AddForce (force);
 
 		foreach (GameObject gObject in forceList) {
-			if(gObject.rigidbody2D != null){
-				if(gObject != null){
+			if(gObject != null){
+				if(gObject.rigidbody2D != null){
 					Vector3 angle = (gObject.transform.position - this.gameObject.transform.position).normalized;
 					float angleValue = Mathf.Atan2 (angle.y,angle.x)*Mathf.Rad2Deg-90;
 					float distance = Vector3.Distance(this.gameObject.transform.position, gObject.transform.position);
@@ -65,17 +65,21 @@ public class GravityKnuckles : BaseWeapon {
 	}
 
 	void OnTriggerExit2D(Collider2D collider){
-		RemoveFromList (collider.gameObject);
+		if (!collider.isTrigger) {
+			RemoveFromList (collider.gameObject);
+		}
 	}
 	
 	void OnCollisionExit2D(Collision2D collision){
-		RemoveFromList (collision.gameObject);
+		if (!collider.isTrigger) {
+			RemoveFromList (collider.gameObject);
+		}
 	}
 
 	void AddToList(GameObject gameObj){
 		forceList.Add (gameObj);
 	}
-	void RemoveFromList(GameObject gameObj){
+	public void RemoveFromList(GameObject gameObj){
 		forceList.Remove (gameObj);
 	}
 	public override bool isReady {
@@ -84,4 +88,8 @@ public class GravityKnuckles : BaseWeapon {
 		}
 	}
 
+	public override void SecondaryAttack ()
+	{
+		//This doesnt need a secondary attack
+	}
 }

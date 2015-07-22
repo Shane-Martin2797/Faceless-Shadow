@@ -175,7 +175,9 @@
      <Compile Include="Assets\Scripts\UI\UITimerScript.cs" />
      <Compile Include="Assets\Scripts\Weapons\BaseWeapon.cs" />
      <Compile Include="Assets\Scripts\Weapons\GravityKnuckles.cs" />
+     <Compile Include="Assets\Scripts\Weapons\Moyashimasu.cs" />
      <Compile Include="Assets\Scripts\Weapons\ShredderMine.cs" />
+     <Compile Include="Assets\Scripts\Weapons\SwordLaser.cs" />
      <None Include="Assets\InControl\README\README.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.4/UnityEngine.UI.dll</HintPath>

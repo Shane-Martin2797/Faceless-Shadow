@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour {
 
 	public float timer;
 	private float timerDefault = 240;
-	private bool gameover = false;
+	public bool gameover = false;
 
 	// Use this for initialization
 	void Awake () {
@@ -20,14 +20,26 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		if (!gameover) {
 			timer -= Time.deltaTime;
-			if(onTimerValueChange != null){
-				onTimerValueChange(timer);
+			if(timer <= 0){
+				gameover = true;
 			}
+			if (onTimerValueChange != null) {
+				onTimerValueChange (timer);
+			}
+		} else {
+			Quit();
 		}
 	}
 	void EarlyUpdate(){
 		if (timer <= 0) {
 			gameover = true;
 		}
+	}
+	void Quit(){
+#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+#else
+		Application.Quit();
+#endif
 	}
 }

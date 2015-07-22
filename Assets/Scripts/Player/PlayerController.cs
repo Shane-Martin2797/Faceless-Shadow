@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour {
 		maxClampY = (minClampY + mapHeight);
 	}
 	
-	// Update is called once per frame
+	//  is called once per frame
 	void Update () {
 		if (inputDevice == null) {
 			ScanForInputDevice ();
@@ -75,6 +75,9 @@ public class PlayerController : MonoBehaviour {
 			if (onPlayerEnergyChange != null) {
 				onPlayerEnergyChange (energy / maxEnergy);
 			}
+		}
+		if (health <= 0) {
+			ground.gameover = true;
 		}
 
 	}

@@ -34,5 +34,4 @@ public class ShredderMine : Enemy {
 		spawner.BroadcastMessage ("Spawn", spike, SendMessageOptions.DontRequireReceiver);
 		CleanUpObject ();
 	}
-
 }

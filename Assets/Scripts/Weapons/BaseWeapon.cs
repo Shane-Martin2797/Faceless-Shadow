@@ -17,4 +17,6 @@ public abstract class BaseWeapon : MonoBehaviour {
     /// Tell the weapon to perform it's attack
     /// </summary>
     public abstract void Attack();
+
+	public abstract void SecondaryAttack();
 }

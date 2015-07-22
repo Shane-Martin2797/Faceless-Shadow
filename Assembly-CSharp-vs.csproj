@@ -175,7 +175,9 @@
      <Compile Include="Assets\Scripts\UI\UITimerScript.cs" />
      <Compile Include="Assets\Scripts\Weapons\BaseWeapon.cs" />
      <Compile Include="Assets\Scripts\Weapons\GravityKnuckles.cs" />
+     <Compile Include="Assets\Scripts\Weapons\Moyashimasu.cs" />
      <Compile Include="Assets\Scripts\Weapons\ShredderMine.cs" />
+     <Compile Include="Assets\Scripts\Weapons\SwordLaser.cs" />
      <None Include="Assets\InControl\README\README.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>/Users/shanemartin/BitBucket/faceless-shadow-beard/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
