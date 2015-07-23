@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void notifyGameObject(GameObject gameObj){
-		gameObj.BroadcastMessage ("PlayerHit");
+		gameObj.BroadcastMessage ("PlayerHit", SendMessageOptions.DontRequireReceiver);
 	}
 	//Health stuff
 	void playerDamaged(float damage){

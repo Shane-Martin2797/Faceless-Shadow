@@ -6,7 +6,7 @@ public abstract class Enemy : MonoBehaviour {
 	private GravityKnuckles gravityKnuckles;
 
 	public virtual void Awake(){
-		gravityKnuckles = FindObjectOfType<GravityKnuckles>();
+		gravityKnuckles = FindObjectOfType<GravityKnuckles> ();
 	}
 
 
@@ -24,8 +24,10 @@ public abstract class Enemy : MonoBehaviour {
 
 	public virtual void CleanUpObject ()
 	{
-		gravityKnuckles.forceList.Remove (gameObject);
-		Destroy (gameObject);
+		if (gravityKnuckles != null) {
+			gravityKnuckles.forceList.Remove (gameObject);
+		}
+			Destroy (gameObject);
 	}
 
 

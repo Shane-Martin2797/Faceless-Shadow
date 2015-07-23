@@ -13,7 +13,7 @@ public class GravityKnuckles : BaseWeapon {
 	private CharacterController2D controller;
 
 
-	public List<GameObject> forceList = new List<GameObject>();
+	public List<GameObject> forceList;
 
 	void Start(){
 		player = FindObjectOfType<PlayerController> ();
@@ -87,9 +87,15 @@ public class GravityKnuckles : BaseWeapon {
 			return (cooldown <= 0 && !controller.isGrounded && player.energy >= powerToRemove);
 		}
 	}
-
 	public override void SecondaryAttack ()
 	{
 		//This doesnt need a secondary attack
+	}
+	
+	void OnDisable ()
+	{
+		for (int i = (forceList.Count - 1); i >= 0; i--) {
+			RemoveFromList(forceList[i]);
+		}
 	}
 }

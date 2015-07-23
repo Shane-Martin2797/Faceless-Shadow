@@ -160,6 +160,7 @@
      <Compile Include="Assets\Plugin\CharacterController2D.cs" />
      <Compile Include="Assets\Plugin\SmoothFollow.cs" />
      <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Enemy\ShredderMine.cs" />
      <Compile Include="Assets\Scripts\Enemy\Spawner.cs" />
      <Compile Include="Assets\Scripts\Enemy\Spike.cs" />
      <Compile Include="Assets\Scripts\FollowScript.cs" />
@@ -176,8 +177,7 @@
      <Compile Include="Assets\Scripts\Weapons\BaseWeapon.cs" />
      <Compile Include="Assets\Scripts\Weapons\GravityKnuckles.cs" />
      <Compile Include="Assets\Scripts\Weapons\Moyashimasu.cs" />
-     <Compile Include="Assets\Scripts\Weapons\ShredderMine.cs" />
-     <Compile Include="Assets\Scripts\Weapons\SwordLaser.cs" />
+     <Compile Include="Assets\Scripts\Weapons\SwordLaserProjectile.cs" />
      <None Include="Assets\InControl\README\README.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>/Users/shanemartin/BitBucket/faceless-shadow-beard/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>

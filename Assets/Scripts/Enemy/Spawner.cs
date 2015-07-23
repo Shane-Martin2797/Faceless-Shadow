@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour {
 	void Spawn(GameObject gameObj){
 		for (int i = 0; i < spawnCount; i++) {
 			Vector3 random = Vector3.zero;
-			random.z = Random.value * 360;
+			random.z = Random.Range(-90, 90); //90 - 0, 360 - 270
 			GameObject GameObj = Instantiate(gameObj, this.gameObject.transform.position, this.gameObject.transform.rotation) as GameObject;
 			GameObj.transform.localEulerAngles = random;
 		}
