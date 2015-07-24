@@ -13,7 +13,7 @@ namespace InControl
 		public int Build;
 
 
-		public VersionInfo( int major, int minor = 0, int patch = 0, int build = 0 )
+		public VersionInfo( int major , int minor = 0, int patch = 0, int build = 0  )
 		{
 			Major = major;
 			Minor = minor;

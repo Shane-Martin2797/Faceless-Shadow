@@ -161,6 +161,7 @@
      <Compile Include="Assets\Plugin\SmoothFollow.cs" />
      <Compile Include="Assets\Scripts\Enemy\Spawner.cs" />
      <Compile Include="Assets\Scripts\Enemy\Spike.cs" />
+     <Compile Include="Assets\Scripts\Enemy\TurretController.cs" />
      <Compile Include="Assets\Scripts\FollowScript.cs" />
      <Compile Include="Assets\Scripts\Input\PlayerKeyboardScript.cs" />
      <Compile Include="Assets\Scripts\Player\CameraFollowScript.cs" />
