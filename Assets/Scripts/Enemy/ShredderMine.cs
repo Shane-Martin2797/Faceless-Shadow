@@ -12,14 +12,15 @@ public class ShredderMine : Enemy {
 	public override void notifyTarget (GameObject gameObject)
 	{
 		if(gameObject.tag == "Player")
-		PlayerHit ();
+			PlayerHit ();
+		if (gameObject.tag == "Projectile")
+			PlayerHit ();
 	}
 	public override void PlayerHit(){
 		attacking = true;
 	}
 
 	void Update(){
-
 		if (attacking) {
 			if(delay <= 0){
 				Attack ();
@@ -34,5 +35,4 @@ public class ShredderMine : Enemy {
 		spawner.BroadcastMessage ("Spawn", spike, SendMessageOptions.DontRequireReceiver);
 		CleanUpObject ();
 	}
-
 }

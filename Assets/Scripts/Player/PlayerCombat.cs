@@ -54,9 +54,11 @@ public class PlayerCombat : MonoBehaviour {
             if (InControl.InputManager.ActiveDevice.Action2.IsPressed)
             { //trigger the current weapon to attack
                 currentWeapon.Attack();
-            }
+            } else if (InControl.InputManager.ActiveDevice.Action2.WasReleased){
+				currentWeapon.SecondaryAttack();
+			}
         }
-		if(InControl.InputManager.ActiveDevice.Action4.IsPressed){
+		if(InControl.InputManager.ActiveDevice.Action4.WasPressed){
 			currentWeapon.gameObject.SetActive(false);
 			currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Count;
 			currentWeapon.gameObject.SetActive(true);

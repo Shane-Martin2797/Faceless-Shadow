@@ -9,12 +9,10 @@ public class Spike : Enemy {
 	public float speed = 2;
 	private float Lifetime;
 	public GameObject target;
-	private Vector3 targetPosition;
 	private Vector3 direction;
 
 
 	void Start(){
-		targetPosition = (transform.position + transform.up * 10);
 		Lifetime = lifetime;
 		direction = Vector3.up;
 	}

@@ -8,12 +8,12 @@ public class GravityKnuckles : BaseWeapon {
 	private float cooldown = 3;
 	private float gravityBoost = 800;
 	public float maxDistance = 5;
-	public float powerToRemove = 50;
+	public float powerToRemove = 100;
 	private CircleCollider2D circle;
 	private CharacterController2D controller;
 
 
-	public List<GameObject> forceList = new List<GameObject>();
+	public List<GameObject> forceList;
 
 	void Start(){
 		player = FindObjectOfType<PlayerController> ();
@@ -40,8 +40,8 @@ public class GravityKnuckles : BaseWeapon {
 		player.rigidbody2D.AddForce (force);
 
 		foreach (GameObject gObject in forceList) {
-			if(gObject.rigidbody2D != null){
-				if(gObject != null){
+			if(gObject != null){
+				if(gObject.rigidbody2D != null){
 					Vector3 angle = (gObject.transform.position - this.gameObject.transform.position).normalized;
 					float angleValue = Mathf.Atan2 (angle.y,angle.x)*Mathf.Rad2Deg-90;
 					float distance = Vector3.Distance(this.gameObject.transform.position, gObject.transform.position);
@@ -65,23 +65,37 @@ public class GravityKnuckles : BaseWeapon {
 	}
 
 	void OnTriggerExit2D(Collider2D collider){
-		RemoveFromList (collider.gameObject);
+		if (!collider.isTrigger) {
+			RemoveFromList (collider.gameObject);
+		}
 	}
 	
 	void OnCollisionExit2D(Collision2D collision){
-		RemoveFromList (collision.gameObject);
+		if (!collider.isTrigger) {
+			RemoveFromList (collider.gameObject);
+		}
 	}
 
 	void AddToList(GameObject gameObj){
 		forceList.Add (gameObj);
 	}
-	void RemoveFromList(GameObject gameObj){
+	public void RemoveFromList(GameObject gameObj){
 		forceList.Remove (gameObj);
 	}
 	public override bool isReady {
 		get {
-			return (cooldown <= 0 && !controller.isGrounded);
+			return (cooldown <= 0 && !controller.isGrounded && player.energy >= powerToRemove);
 		}
 	}
-
+	public override void SecondaryAttack ()
+	{
+		//This doesnt need a secondary attack
+	}
+	
+	void OnDisable ()
+	{
+		for (int i = (forceList.Count - 1); i >= 0; i--) {
+			RemoveFromList(forceList[i]);
+		}
+	}
 }

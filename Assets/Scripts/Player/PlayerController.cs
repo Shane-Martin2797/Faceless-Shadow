@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour {
 	private float timeWithoutHitDef = 3;
 	private float timeWithoutHit;
 	private float timeWithoutEnergyDef = 3;
-	public float timeWithoutEnergy;
+	private float timeWithoutEnergy;
 
 	public AnimationCurve healthRecoverCurve;
 	public float maxTimeToRecover = 5;
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour {
 		maxClampY = (minClampY + mapHeight);
 	}
 	
-	// Update is called once per frame
+	//  is called once per frame
 	void Update () {
 		if (inputDevice == null) {
 			ScanForInputDevice ();
@@ -76,6 +76,9 @@ public class PlayerController : MonoBehaviour {
 				onPlayerEnergyChange (energy / maxEnergy);
 			}
 		}
+		if (health <= 0) {
+			ground.gameover = true;
+		}
 
 	}
 
@@ -94,7 +97,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void notifyGameObject(GameObject gameObj){
-		gameObj.BroadcastMessage ("PlayerHit");
+		gameObj.BroadcastMessage ("PlayerHit", SendMessageOptions.DontRequireReceiver);
 	}
 	//Health stuff
 	void playerDamaged(float damage){
