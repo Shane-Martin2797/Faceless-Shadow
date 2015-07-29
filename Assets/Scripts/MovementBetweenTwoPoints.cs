@@ -12,7 +12,7 @@ public class MovementBetweenTwoPoints : MonoBehaviour {
 	public float speed = 2;
 	public bool lerps;
 	public bool playerMovesWith;
-	public bool playerIsTouching;
+	private bool playerIsTouching;
 	private BoxCollider2D box;
 	private float maxHeightAbove = 5;
 	private Vector3 offset = Vector3.zero;
@@ -58,9 +58,7 @@ public class MovementBetweenTwoPoints : MonoBehaviour {
 				if(playerIsTouching){
 					if(player.isGrounded){
 						Vector3 pos = player.transform.position;
-						float posY = pos.y;
 						pos = transform.position + offset;
-						pos.y = posY;
 						player.transform.position = pos;
 					}
 				}
