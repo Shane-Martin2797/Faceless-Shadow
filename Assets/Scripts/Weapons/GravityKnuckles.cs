@@ -45,7 +45,9 @@ public class GravityKnuckles : BaseWeapon {
 					Vector3 angle = (gObject.transform.position - this.gameObject.transform.position).normalized;
 					float angleValue = Mathf.Atan2 (angle.y,angle.x)*Mathf.Rad2Deg-90;
 					float distance = Vector3.Distance(this.gameObject.transform.position, gObject.transform.position);
+					if(gObject.tag == "Projectile"){
 					gObject.rigidbody2D.AddForce(angle * (1/distance) * maxDistance * gravityBoost);
+					}
 					gObject.BroadcastMessage("GravityKnucklesAffect", (angleValue), SendMessageOptions.DontRequireReceiver);
 			}
 			}

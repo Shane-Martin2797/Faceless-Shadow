@@ -3,6 +3,7 @@ using System.Collections;
 
 public class TurretController : MonoBehaviour {
 	public PlayerController player;
+	public GameObject barrel;
 	public Vector3 playerPos;
 	private float timeTillFire;
 	public float timeResetAmount;
@@ -37,7 +38,7 @@ public class TurretController : MonoBehaviour {
 
 	void FireBullet()
 	{
-		Spike bulletInstantiate = Instantiate (Bullet, this.transform.localPosition, this.transform.localRotation) as Spike;
+		Spike bulletInstantiate = Instantiate (Bullet, barrel.transform.position, this.transform.localRotation) as Spike;
 		bulletInstantiate.speed = bulletSpeed;
 	}
 }
