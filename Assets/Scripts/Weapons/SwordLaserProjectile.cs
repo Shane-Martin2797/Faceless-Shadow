@@ -7,6 +7,7 @@ public class SwordLaserProjectile : MonoBehaviour {
 	public float speed = 10;
 	private float count;
 	private float countMax = 3;
+	public float lifetime;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,10 @@ public class SwordLaserProjectile : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		transform.Translate (Vector3.right * Time.deltaTime * speed);
+		lifetime -= Time.deltaTime;
+		if (lifetime <= 0) {
+			CleanUpObject (this.gameObject);
+		}
 	}
 
 	void SetDamage(DamageInfo damage){
@@ -25,11 +30,14 @@ public class SwordLaserProjectile : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D collision){
 		CleanUpObject (collision.gameObject);
 	}
+	void OnTriggerEnter2D(Collider2D collider){
+		CleanUpObject (collider.gameObject);
+	}
 	void CleanUpObject(GameObject gameObj){
 		if (gameObject.tag != "Player" && gameObj.tag != "Projectile") {
 			count++;
 		}
-		if(count >= countMax || gameObj.tag == "Level"){
+		if(count >= countMax || gameObj.tag == "Level" || lifetime <= 0){
 		Destroy (this.gameObject);
 		}
 	}
