@@ -39,6 +39,5 @@ public class TurretController : MonoBehaviour {
 	{
 		Spike bulletInstantiate = Instantiate (Bullet, this.transform.localPosition, this.transform.localRotation) as Spike;
 		bulletInstantiate.speed = bulletSpeed;
-		//bulletInstantiate.rigidbody2D.AddForce (transform.up * bulletSpeed);
 	}
 }

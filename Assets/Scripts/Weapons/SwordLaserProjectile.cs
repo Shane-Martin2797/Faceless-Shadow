@@ -23,7 +23,6 @@ public class SwordLaserProjectile : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D collision){
-		Debug.Log (collision.gameObject);
 		CleanUpObject (collision.gameObject);
 	}
 	void CleanUpObject(GameObject gameObj){
