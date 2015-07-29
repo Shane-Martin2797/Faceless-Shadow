@@ -2,19 +2,17 @@
 using System.Collections;
 
 public class TurretController : MonoBehaviour {
-	public GameObject player;
+	public PlayerController player;
 	public Vector3 playerPos;
-	public float timeTillFire;
+	private float timeTillFire;
 	public float timeResetAmount;
-	public Rigidbody2D Bullet;
+	public Spike Bullet;
 	public float bulletSpeed;
-	void awake () {
 
-	}
 	// Use this for initialization
 	void Start () {
-		//playerPos = player.transform.localPosition;
 		timeTillFire = timeResetAmount;
+		player = FindObjectOfType<PlayerController> ();
 	}
 	
 	// Update is called once per frame
@@ -29,10 +27,6 @@ public class TurretController : MonoBehaviour {
 
 		playerPos = player.transform.position;
 		LookAtPlayer();
-
-
-		//this.transform.LookAt(playerPos);
-		//this.transform.Rotate(new Vector3(0,-90,0),Space.Self);
 	}
 
 	void LookAtPlayer()
@@ -43,8 +37,8 @@ public class TurretController : MonoBehaviour {
 
 	void FireBullet()
 	{
-		Rigidbody2D bulletInstantiate;
-		bulletInstantiate = Instantiate (Bullet, this.transform.localPosition, this.transform.localRotation)as Rigidbody2D;
-		bulletInstantiate.rigidbody2D.AddForce (transform.up * bulletSpeed);
+		Spike bulletInstantiate = Instantiate (Bullet, this.transform.localPosition, this.transform.localRotation) as Spike;
+		bulletInstantiate.speed = bulletSpeed;
+		//bulletInstantiate.rigidbody2D.AddForce (transform.up * bulletSpeed);
 	}
 }
