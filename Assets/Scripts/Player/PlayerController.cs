@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour {
 	private static List<InControl.InputDevice> activeDevices = new List<InControl.InputDevice>();
 	public InControl.InputDevice inputDevice { get; private set; }
 	public bool hasInputDevice { get { return inputDevice != null; } }
-	public float minClampY, maxClampY;
 	private CharacterController2D character;
 	private float mapHeight = 50;
 	private float timeWithoutHitDef = 3;
@@ -47,9 +46,6 @@ public class PlayerController : MonoBehaviour {
 		energyValueChangingTo = energy;
 		character = this.gameObject.GetComponent<CharacterController2D> ();
 		BoxCollider2D box = GetComponent<BoxCollider2D> ();
-
-		minClampY = -3.69f;
-		maxClampY = (minClampY + mapHeight);
 	}
 	
 	//  is called once per frame
@@ -83,9 +79,6 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		Vector3 pos = transform.position;
-		pos.y = Mathf.Clamp (pos.y, minClampY, maxClampY);
-		transform.position = pos;
 	}
 
 
