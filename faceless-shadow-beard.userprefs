@@ -1,13 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/TurretController.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../GitHub/GAM111.2/Assets/Scripts/Player/AStarPrep.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/Button.cs" Line="13" Column="1" />
-      <File FileName="Assets/Scripts/Enemy/TurretController.cs" Line="72" Column="100" />
-      <File FileName="Assets/Scripts/Enemy/Spike.cs" Line="41" Column="2" />
-      <File FileName="Assets/Scripts/Enemy/BreakableWall.cs" Line="6" Column="28" />
-      <File FileName="Assets/Scripts/Weapons/GravityKnuckles.cs" Line="47" Column="1" />
-      <File FileName="../../GitHub/GAM111_Game2/Assets/Scripts/EnemyController.cs" Line="131" Column="1" />
+      <File FileName="../../GitHub/GAM111.2/Assets/Scripts/AITargetting.cs" Line="64" Column="5" />
+      <File FileName="../../GitHub/GAM111_Game2/Assets/Scripts/EnemyController.cs" Line="133" Column="11" />
+      <File FileName="../../GitHub/GAM111.2/Assets/Scripts/Player/PlayerAI.cs" Line="72" Column="1" />
+      <File FileName="../../GitHub/GAM111.2/Assets/Scripts/Player/AStarPrep.cs" Line="39" Column="30" />
+      <File FileName="Assets/Scripts/Weapons/GravityKnuckles.cs" Line="46" Column="43" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
